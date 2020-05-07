@@ -9,8 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var show2019 = false
+    
     var body: some View {
-        Text("Hello, World!")
+        
+        Button("Show Paper") {
+            
+             
+            
+            self.show2019.toggle()
+        }
+         
+            
+        .sheet(isPresented: self.$show2019) {
+            OEng19ListView()
+        }
     }
 }
 
@@ -19,3 +32,72 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+ 
+
+ 
+
+struct TextShimmerView : View {
+    
+    @State var show = false
+    
+    var body : some View{
+        
+        ZStack{
+            
+            
+            
+            VStack {
+                
+                Spacer()
+                
+                ZStack{
+                   
+                 
+                    Text("More Paper Coming Soon!")
+                        .foregroundColor(Color("ColorShimmer").opacity(0.4))
+                        .font(.system(size: 28))
+                    
+                    Text("More Paper Coming Soon!")
+                        .foregroundColor(Color("ColorShimmer"))
+                        .font(.system(size: 28))
+                        .mask(
+                    
+                        
+                    Capsule()
+                    .fill(LinearGradient(gradient: .init(colors: [.clear,.white,.clear]), startPoint: .top, endPoint: .bottom))
+                    .rotationEffect(.init(degrees: 30))
+                    .offset(x: self.show ? 180 : -130)
+                            
+                        )
+                    
+                }
+                    Spacer()
+                
+                    
+                
+                    Text("Storing: 1330 Paper")
+                    .foregroundColor(Color("ColorShimmerText"))
+                    .font(.system(size: 15))
+                        
+                    Text("Currently Support: 6 subjects")
+                    .foregroundColor(Color("ColorShimmerText"))
+                    .font(.system(size: 15))
+                
+            }
+            .padding(.bottom, 20)
+            .edgesIgnoringSafeArea(.bottom)
+            
+        }
+        .onAppear {
+            
+            withAnimation(Animation.default.speed(0.25).delay(0).repeatForever(autoreverses: true)){
+                
+                self.show.toggle()
+            }
+        }
+    }
+}
+
+ 
