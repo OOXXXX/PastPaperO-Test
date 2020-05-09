@@ -9,22 +9,42 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var show2019 = false
-    
-    var body: some View {
-        
-        Button("Show Paper") {
+    @State var selection = 0
+   var body: some View {
+        TabView(selection: $selection) {
             
-             
-            
-            self.show2019.toggle()
-        }
+            NavigationView {
+                HomeView()
+            }
+            //.navigationBarTitle("Home")
+                .tabItem {
+                    VStack {
+                        if selection == 0 {
+                            Image(systemName: "house.fill")
+                        } else
+                        {
+                            Image(systemName: "house")
+                        }
+                        //Text("Home")
+                    }
+                }
+            .tag(0)
+            NavigationView {
+                SettingsView()
+            }.navigationBarTitle("Settings")
+                .tabItem {
+                    VStack {
+                        Image(systemName: "gear")
+                        //Text("Settings")
+                    }
+                }
+                .tag(1)
+            }
+            .accentColor(.black)
+                    
+                }
          
-            
-        .sheet(isPresented: self.$show2019) {
-            OEng19ListView()
-        }
-    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -34,70 +54,56 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
+struct YearRoundedButton: ButtonStyle {
  
-
- 
-
-struct TextShimmerView : View {
-    
-    @State var show = false
-    
-    var body : some View{
-        
-        ZStack{
-            
-            
-            
-            VStack {
-                
-                Spacer()
-                
-                ZStack{
-                   
-                 
-                    Text("More Paper Coming Soon!")
-                        .foregroundColor(Color("ColorShimmer").opacity(0.4))
-                        .font(.system(size: 28))
-                    
-                    Text("More Paper Coming Soon!")
-                        .foregroundColor(Color("ColorShimmer"))
-                        .font(.system(size: 28))
-                        .mask(
-                    
-                        
-                    Capsule()
-                    .fill(LinearGradient(gradient: .init(colors: [.clear,.white,.clear]), startPoint: .top, endPoint: .bottom))
-                    .rotationEffect(.init(degrees: 30))
-                    .offset(x: self.show ? 180 : -130)
-                            
-                        )
-                    
-                }
-                    Spacer()
-                
-                    
-                
-                    Text("Storing: 1330 Paper")
-                    .foregroundColor(Color("ColorShimmerText"))
-                    .font(.system(size: 15))
-                        
-                    Text("Currently Support: 6 subjects")
-                    .foregroundColor(Color("ColorShimmerText"))
-                    .font(.system(size: 15))
-                
-            }
-            .padding(.bottom, 20)
-            .edgesIgnoringSafeArea(.bottom)
-            
-        }
-        .onAppear {
-            
-            withAnimation(Animation.default.speed(0.25).delay(0).repeatForever(autoreverses: true)){
-                
-                self.show.toggle()
-            }
-        }
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(.system(size: 30))
+            .foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
+            //.padding(.bottom, -10)
+            .frame(width: 200, height: 80)
+            .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+            //.cornerRadius(15)
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+            //.overlay(
+               //RoundedRectangle(cornerRadius: 20).stroke(Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)), lineWidth: 1))
+            .shadow(color: Color.gray.opacity(0.2), radius: 3, x: 0, y: 2)
     }
 }
 
  
+struct HomeView: View {
+   @State var show2019 = false
+    var body: some View {
+        Button("English") {
+                
+                
+                self.show2019.toggle()
+            }
+            .buttonStyle(YearRoundedButton())
+              
+            .hoverEffect(.lift)
+            .sheet(isPresented: self.$show2019) {
+                OEng19ListView()
+            }
+        }
+        
+    }
+
+ struct SettingsView: View {
+ @State var show2019 = false
+  var body: some View {
+      Button("English") {
+              
+              
+              self.show2019.toggle()
+          }
+          .buttonStyle(YearRoundedButton())
+            
+          .hoverEffect(.lift)
+          .sheet(isPresented: self.$show2019) {
+              OEng19ListView()
+          }
+      }
+      
+  }
