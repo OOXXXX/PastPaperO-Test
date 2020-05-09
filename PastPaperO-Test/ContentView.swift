@@ -9,42 +9,49 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var selection = 0
+@State var selection = 0
    var body: some View {
-        TabView(selection: $selection) {
-            
-            NavigationView {
-                HomeView()
-            }
-            //.navigationBarTitle("Home")
-                .tabItem {
-                    VStack {
-                        if selection == 0 {
-                            Image(systemName: "house.fill")
-                        } else
-                        {
-                            Image(systemName: "house")
-                        }
-                        //Text("Home")
-                    }
-                }
-            .tag(0)
-            NavigationView {
-                SettingsView()
-            }.navigationBarTitle("Settings")
-                .tabItem {
-                    VStack {
-                        Image(systemName: "gear")
-                        //Text("Settings")
-                    }
-                }
-                .tag(1)
-            }
-            .accentColor(.black)
-                    
-                }
-         
     
+        TabView(selection: $selection) {
+            HomeView()
+                .tabItem {
+                    if selection == 0 {
+                        Image(systemName: "house.fill")
+                        .font(.system(size: 23))
+                    } else {
+                        Image(systemName: "house")
+                        .font(.system(size: 23))
+                    }
+       
+                }.tag(0)
+            
+            
+            Text("Second View")
+                .tabItem {
+                    if selection == 1 {
+                        Image(systemName: "doc.text.fill")
+                        .font(.system(size: 23))
+                    } else {
+                        Image(systemName: "doc.text")
+                        .font(.system(size: 23))
+                    }
+                }.tag(1)
+            
+            Text("Third View")
+            .tabItem {
+                if selection == 2 {
+                    Image(systemName: "person.fill")
+                    .font(.system(size: 23))
+                } else {
+                    Image(systemName: "person")
+                    .font(.system(size: 23))
+                }
+            }.tag(2)
+        }
+                    
+                 
+         
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
