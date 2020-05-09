@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+let screen = UIScreen.main.bounds
+
 struct ContentView: View {
 @State var selection = 0
    var body: some View {
@@ -24,7 +26,8 @@ struct ContentView: View {
                     }
        
                 }.tag(0)
-            
+                 
+    
             
             Text("Second View")
                 .tabItem {
@@ -36,6 +39,7 @@ struct ContentView: View {
                         .font(.system(size: 23))
                     }
                 }.tag(1)
+            .transition(.slide)
             
             Text("Third View")
             .tabItem {
@@ -47,6 +51,7 @@ struct ContentView: View {
                     .font(.system(size: 23))
                 }
             }.tag(2)
+            .transition(.slide)
         }
                     
                  
@@ -68,8 +73,9 @@ struct YearRoundedButton: ButtonStyle {
             .font(.system(size: 30))
             .foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
             //.padding(.bottom, -10)
-            .frame(width: 200, height: 80)
+            .frame(width: screen.width-30, height: 80)
             .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+            
             //.cornerRadius(15)
             .clipShape(RoundedRectangle(cornerRadius: 15))
             //.overlay(
@@ -79,23 +85,7 @@ struct YearRoundedButton: ButtonStyle {
 }
 
  
-struct HomeView: View {
-   @State var show2019 = false
-    var body: some View {
-        Button("English") {
-                
-                
-                self.show2019.toggle()
-            }
-            .buttonStyle(YearRoundedButton())
-              
-            .hoverEffect(.lift)
-            .sheet(isPresented: self.$show2019) {
-                OEng19ListView()
-            }
-        }
-        
-    }
+
 
  struct SettingsView: View {
  @State var show2019 = false
@@ -114,3 +104,5 @@ struct HomeView: View {
       }
       
   }
+
+
