@@ -81,9 +81,13 @@ struct OEng19Detail: View {
             }
             .sheet(isPresented: $showShareSheet) {
                 ShareSheet(activityItems: [self.xxx.url])
+                .edgesIgnoringSafeArea(.all)
             }
+            
         )
+        .edgesIgnoringSafeArea(.all)
     }
+    
 }
 
  
