@@ -27,7 +27,9 @@ var body: some View {
             
         }
        .navigationBarTitle(Text("2019"))
+       
     }
+        
     .navigationViewStyle(StackNavigationViewStyle())
     
   }
@@ -64,6 +66,7 @@ struct OEng19Row: View {
 
 
 struct OEng19Detail: View {
+    @State private var showShareSheet = false
     var xxx: OEng19
 
     var body: some View {
@@ -71,6 +74,15 @@ struct OEng19Detail: View {
             Webview(url: (xxx.url))
         }
         .navigationBarTitle(Text(xxx.name), displayMode: .inline)
+        .navigationBarItems(trailing:
+            Button("Share") {
+                self.showShareSheet = true
+                
+            }
+            .sheet(isPresented: $showShareSheet) {
+                ShareSheet(activityItems: [self.xxx.url])
+            }
+        )
     }
 }
 
