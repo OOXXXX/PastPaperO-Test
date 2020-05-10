@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SafariServices
 
 struct OEng19ListView: View {
 
@@ -71,23 +72,37 @@ struct OEng19Detail: View {
 
     var body: some View {
         VStack {
-            Webview(url: (xxx.url))
+            //Webview(url: (xxx.url))
+            SafariView(url:URL(string: self.xxx.url)!)
+            .navigationBarHidden(true)
         }
         .navigationBarTitle(Text(xxx.name), displayMode: .inline)
-        .navigationBarItems(trailing:
-            Button("Share") {
-                self.showShareSheet = true
-                
-            }
-            .sheet(isPresented: $showShareSheet) {
-                ShareSheet(activityItems: [self.xxx.url])
-                .edgesIgnoringSafeArea(.all)
-            }
+         
             
-        )
+        
         .edgesIgnoringSafeArea(.all)
     }
     
 }
 
- 
+ struct SafariView: UIViewControllerRepresentable {
+
+     let url: URL
+
+     func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
+         return SFSafariViewController(url: url)
+     }
+
+     func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariView>) {
+
+     }
+    
+     func prefersStatusBarHidden() -> Bool {
+          return true
+      }
+      
+
+ }
+
+
+  
