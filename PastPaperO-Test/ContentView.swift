@@ -73,7 +73,7 @@ struct YearRoundedButton: ButtonStyle {
             .font(.system(size: 30))
             .foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
             //.padding(.bottom, -10)
-            .frame(width: screen.width-30, height: 80)
+            .frame(width: 110, height: 60)
             .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
             
             //.cornerRadius(15)

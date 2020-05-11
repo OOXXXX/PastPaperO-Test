@@ -12,20 +12,27 @@ struct HomeView: View {
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 30)!]
     }
+@State private var action: Int? = 0
+@State private var hovered = false
 @State var show2019 = false
  var body: some View {
     
-    NavigationView{
-    
-        Button("English") {
-             
+ NavigationView{
+    VStack{
+        Button("Sheet") {
+            
+            
              
              self.show2019.toggle()
          }
             
          .buttonStyle(YearRoundedButton())
-         
-         .hoverEffect(.lift)
+         .scaleEffect(hovered ? 1.1 : 1.0)
+         .animation(.easeInOut)
+         .onHover { isHovered in
+             self.hovered = isHovered
+         }
+ 
          .sheet(isPresented: self.$show2019) {
              OEng19ListView()
          }
@@ -34,9 +41,12 @@ struct HomeView: View {
          
          
         }
+        
         .navigationViewStyle(StackNavigationViewStyle())
+    
+  
      }
-     
+    }
  }
 
 struct HomeView_Previews: PreviewProvider {
