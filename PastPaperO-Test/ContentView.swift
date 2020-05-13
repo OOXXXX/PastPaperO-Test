@@ -95,9 +95,8 @@ struct YearRoundedButton: ButtonStyle {
               
               self.show2019.toggle()
           }
+        
           .buttonStyle(YearRoundedButton())
-            
-          .hoverEffect(.lift)
           .sheet(isPresented: self.$show2019) {
               OEng19ListView()
           }

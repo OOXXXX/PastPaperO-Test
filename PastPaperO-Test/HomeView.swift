@@ -8,11 +8,14 @@
 
 import SwiftUI
 
+
+ 
+
 struct HomeView: View {
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "Georgia-Bold", size: 30)!]
     }
-@State private var action: Int? = 0
+//@State private var action: Int? = 0
 @State private var hovered = false
 @State var show2019 = false
  var body: some View {
@@ -27,7 +30,7 @@ struct HomeView: View {
          }
             
          .buttonStyle(YearRoundedButton())
-         .scaleEffect(hovered ? 1.1 : 1.0)
+         .scaleEffect(hovered ? 0.9 : 1.0)
          .animation(.easeInOut)
          .onHover { isHovered in
              self.hovered = isHovered
@@ -35,17 +38,16 @@ struct HomeView: View {
  
          .sheet(isPresented: self.$show2019) {
              OEng19ListView()
+            
          }
             
             .navigationBarTitle("Home")
-         
+            
          
         }
-        
-        .navigationViewStyle(StackNavigationViewStyle())
-    
-  
+   
      }
+    .navigationViewStyle(StackNavigationViewStyle())
     }
  }
 
@@ -54,3 +56,5 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+
+ 

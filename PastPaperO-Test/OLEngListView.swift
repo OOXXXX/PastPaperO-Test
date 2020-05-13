@@ -17,21 +17,16 @@ var body: some View {
     
   
     NavigationView {
+         
         VStack{
-             
             
-            
-             
-                OEng19List()
-            
-             
+            OEng19List()
+
             
         }
        .navigationBarTitle(Text("2019"))
-       
     }
-        
-    .navigationViewStyle(StackNavigationViewStyle())
+       .navigationViewStyle(StackNavigationViewStyle())
     
   }
 }
@@ -72,9 +67,13 @@ struct OEng19Detail: View {
 
     var body: some View {
         VStack {
-            //Webview(url: (xxx.url))
+          //Webview(url: (xxx.url))
+          //Here you can chage.
+            
             SafariView(url:URL(string: self.xxx.url)!)
             .navigationBarHidden(true)
+            
+          // When I hide the NavigationBar, it looks better but if I click the "Done" button, The present sheet will totally swipe off.
         }
         .navigationBarTitle(Text(xxx.name), displayMode: .inline)
          

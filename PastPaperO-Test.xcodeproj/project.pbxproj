@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		188AA9432463AC9400BC7FFB /* PDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188AA9422463AC9400BC7FFB /* PDFView.swift */; };
 		188AA9502463B29900BC7FFB /* OLEng.json in Resources */ = {isa = PBXBuildFile; fileRef = 188AA94F2463B29900BC7FFB /* OLEng.json */; };
 		188AA9522463B2FD00BC7FFB /* OLEngListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188AA9512463B2FD00BC7FFB /* OLEngListView.swift */; };
 		188AA9542463B32800BC7FFB /* OLEngData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188AA9532463B32800BC7FFB /* OLEngData.swift */; };
@@ -35,7 +34,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		188AA9422463AC9400BC7FFB /* PDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFView.swift; sourceTree = "<group>"; };
 		188AA94F2463B29900BC7FFB /* OLEng.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OLEng.json; sourceTree = "<group>"; };
 		188AA9512463B2FD00BC7FFB /* OLEngListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLEngListView.swift; sourceTree = "<group>"; };
 		188AA9532463B32800BC7FFB /* OLEngData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLEngData.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 				188AA9512463B2FD00BC7FFB /* OLEngListView.swift */,
 				188AA9532463B32800BC7FFB /* OLEngData.swift */,
 				188AA9552463B38F00BC7FFB /* WebView.swift */,
-				188AA9422463AC9400BC7FFB /* PDFView.swift */,
 				188AA94F2463B29900BC7FFB /* OLEng.json */,
 				189F8D2E2462C9A5000044F0 /* Assets.xcassets */,
 				189F8D332462C9A5000044F0 /* LaunchScreen.storyboard */,
@@ -123,6 +120,8 @@
 			dependencies = (
 			);
 			name = "PastPaperO-Test";
+			packageProductDependencies = (
+			);
 			productName = "PastPaperO-Test";
 			productReference = 189F8D252462C9A3000044F0 /* PastPaperO-Test.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +150,8 @@
 				Base,
 			);
 			mainGroup = 189F8D1C2462C9A3000044F0;
+			packageReferences = (
+			);
 			productRefGroup = 189F8D262462C9A3000044F0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -183,7 +184,6 @@
 				188AA9542463B32800BC7FFB /* OLEngData.swift in Sources */,
 				189F8D292462C9A3000044F0 /* AppDelegate.swift in Sources */,
 				189F8D2B2462C9A3000044F0 /* SceneDelegate.swift in Sources */,
-				188AA9432463AC9400BC7FFB /* PDFView.swift in Sources */,
 				18CA409D24670487004EE2D0 /* HomeView.swift in Sources */,
 				189F8D2D2462C9A3000044F0 /* ContentView.swift in Sources */,
 				188AA9562463B38F00BC7FFB /* WebView.swift in Sources */,
