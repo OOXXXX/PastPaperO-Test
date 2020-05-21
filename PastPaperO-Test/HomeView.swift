@@ -17,6 +17,7 @@ struct HomeView: View {
     }
 //@State private var action: Int? = 0
 @State private var hovered = false
+@State private var showSheet1 = false
 @State var show2019 = false
  var body: some View {
     
@@ -26,7 +27,7 @@ struct HomeView: View {
             
             
              
-             self.show2019.toggle()
+             self.showSheet1.toggle()
          }
             
          .buttonStyle(YearRoundedButton())
@@ -36,10 +37,14 @@ struct HomeView: View {
              self.hovered = isHovered
          }
  
-         .sheet(isPresented: self.$show2019) {
-             OEng19ListView()
-            
-         }
+//         .sheet(isPresented: self.$show2019) {
+//             TestModalView()
+//
+//         }
+            .sheet(isPresented: $showSheet1) {
+                TestModalView()
+                    .modifier(DisableModalDismiss(disabled: true))
+            }
             
             .navigationBarTitle("Home")
             
