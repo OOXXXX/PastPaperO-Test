@@ -29,6 +29,7 @@ struct Webview: UIViewControllerRepresentable {
         webviewController.webview.load(request)
     }
 }
+
 class WebviewController: UIViewController {
     lazy var webview: WKWebView = WKWebView()
     lazy var progressbar: UIProgressView = UIProgressView()

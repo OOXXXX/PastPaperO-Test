@@ -119,6 +119,7 @@ struct OEng19Detail: View {
                 activityView.frame(width: 300, height: 480)
             } else {
                 activityView
+                    .edgesIgnoringSafeArea(.all)
             }
         }
     }

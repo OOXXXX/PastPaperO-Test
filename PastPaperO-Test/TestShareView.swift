@@ -32,9 +32,10 @@ struct TestShareView: View {
                .popover(isPresented: $isActivityPopoverPresented, attachmentAnchor: .point(.topTrailing), arrowEdge: .top, content: activityView)
                // ⚠️ IMPORTANT: `UIActivityViewController` must be presented in a popover on iPhone and iPod Touch:
                .sheet(isPresented: $isActivitySheetPresented, content: activityView)
+                
              
            }
-           
+          
        }
        
        private var shareButton: some View {
@@ -74,6 +75,7 @@ struct TestShareView: View {
                } else {
                    activityView
                }
+             
            }
        }
 }
