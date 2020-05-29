@@ -78,7 +78,9 @@ struct TestShareView: View {
              
            }
        }
+     
 }
+
 
 class RemoteURLActivityItemProvider : UIActivityItemProvider {
     let remoteURL: URL

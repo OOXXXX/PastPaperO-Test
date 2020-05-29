@@ -6,7 +6,7 @@
 //  Copyright © 2020 Rhapsody. All rights reserved.
 //
 
-import Foundation
+ 
 import SwiftUI
 import WebKit
 
@@ -31,6 +31,7 @@ struct Webview: UIViewControllerRepresentable {
 }
 
 class WebviewController: UIViewController {
+    
     lazy var webview: WKWebView = WKWebView()
     lazy var progressbar: UIProgressView = UIProgressView()
 
@@ -38,6 +39,7 @@ class WebviewController: UIViewController {
         super.viewDidLoad()
 
         self.webview.frame = self.view.frame
+        self.webview.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.webview)
 
         self.view.addSubview(self.progressbar)
@@ -46,6 +48,11 @@ class WebviewController: UIViewController {
             self.progressbar.topAnchor.constraint(equalTo: self.view.topAnchor),
             self.progressbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.progressbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            
+            self.webview.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.webview.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            self.webview.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            self.webview.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
         self.progressbar.progress = 0.1

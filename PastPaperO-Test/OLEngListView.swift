@@ -23,7 +23,7 @@ var body: some View {
             OEng19List()
             
         }
-       .navigationBarTitle(Text("2019"))
+       .navigationBarTitle(Text("2018"))
     }
        
   }
