@@ -28,7 +28,7 @@ struct TestModalView: View {
 }
 
 struct DisableModalDismiss: ViewModifier {
-    let disabled: Bool
+    let disabled = false
     func body(content: Content) -> some View {
         disableModalDismiss()
         return AnyView(content)

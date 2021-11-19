@@ -30,8 +30,7 @@ struct HomeView: View {
              self.showSheet1.toggle()
          }
             
-         .buttonStyle(YearRoundedButton())
-         .scaleEffect(hovered ? 0.9 : 1.0)
+         
          .animation(.easeInOut)
          .onHover { isHovered in
              self.hovered = isHovered
@@ -43,12 +42,10 @@ struct HomeView: View {
 //         }
             .sheet(isPresented: $showSheet1) {
                 TestModalView()
-                    .modifier(DisableModalDismiss(disabled: true))
-            }
-            
+                .modifier(DisableModalDismiss())
+            }            
             .navigationBarTitle("Home")
-            
-         
+                     
         }
    
      }

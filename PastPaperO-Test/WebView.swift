@@ -45,14 +45,14 @@ class WebviewController: UIViewController {
         self.view.addSubview(self.progressbar)
         self.progressbar.translatesAutoresizingMaskIntoConstraints = false
         self.view.addConstraints([
-            self.progressbar.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.progressbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.progressbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            
-            self.webview.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            self.webview.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            self.webview.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            self.webview.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+        self.progressbar.topAnchor.constraint(equalTo: self.view.topAnchor),
+        self.progressbar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+        self.progressbar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+        
+        self.webview.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+        self.webview.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+        self.webview.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+        self.webview.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
         self.progressbar.progress = 0.1
